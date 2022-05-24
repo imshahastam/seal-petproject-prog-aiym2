@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Seal</string>
+
+    <string name="timeout"> Превышено время ожидания</string>
+    <string name="no_internet">Нет интернета</string>
+    <string name="unknown_exception">Непридвиденная ошибка</string>
 </resources>
