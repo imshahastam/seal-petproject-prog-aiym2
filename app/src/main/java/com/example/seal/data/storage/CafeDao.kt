@@ -14,9 +14,6 @@ interface CafeDao {
     @Query("SELECT * FROM CafeEntity")
     fun getAll(): LiveData<List<CafeEntity>>
 
-    @Query("SELECT * FROM CafeEntity WHERE id = :id")
-    fun getById(id: Long?): Single<CafeEntity>
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertList(episodesList: List<CafeEntity>)
 

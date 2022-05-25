@@ -4,4 +4,12 @@
     <string name="timeout"> Превышено время ожидания</string>
     <string name="no_internet">Нет интернета</string>
     <string name="unknown_exception">Непридвиденная ошибка</string>
+    <string name="authentication_failed">Авторизация провалена</string>
+
+    <string name="registration">Регистрация</string>
+    <string name="name">Имя</string>
+    <string name="surname">Фамилия</string>
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
+    <string name="register">Зарегистрироваться</string>
 </resources>

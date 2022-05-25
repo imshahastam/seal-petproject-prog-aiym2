@@ -6,6 +6,6 @@ data class ResponseCafies(
 )
 
 data class CafeDto (
-    val id: Int,
+    val objectId: String,
     val name: String
 )

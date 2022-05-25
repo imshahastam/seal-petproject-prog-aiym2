@@ -6,14 +6,14 @@ import com.example.seal.domain.models.Cafe
 
 fun CafeDto.toCafeEntity() : CafeEntity {
     return CafeEntity(
-        id,
+        objectId,
         name
     )
 }
 
 fun CafeDto.toCafe() : Cafe {
     return Cafe(
-        id,
+        objectId,
         name
     )
 }

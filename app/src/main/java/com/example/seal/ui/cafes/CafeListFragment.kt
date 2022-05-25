@@ -38,9 +38,7 @@ class CafeListFragment : BaseFragment<CafeListVM, FragmentCafeListBinding>(
         val layoutManager = LinearLayoutManager(activity)
         binding.recycler.layoutManager = layoutManager
         binding.recycler.adapter = cafeAdapter
-        binding.loadCafies.setOnClickListener {
-            viewModel.fetchCafe()
-        }
+        viewModel.fetchCafe()
     }
 
     private fun subscribeToLiveData() {

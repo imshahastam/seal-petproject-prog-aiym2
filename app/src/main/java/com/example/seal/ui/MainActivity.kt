@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = CafeListFragment()
+        val fragment = RegisterFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.container, fragment)
             .commit()

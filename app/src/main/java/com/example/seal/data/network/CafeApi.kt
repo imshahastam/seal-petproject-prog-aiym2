@@ -8,6 +8,6 @@ import retrofit2.http.GET
 
 interface CafeApi {
 
-    @GET("/Cafies")
+    @GET("Cafies")
     fun getCafies(): Single<List<CafeDto>>
 }
