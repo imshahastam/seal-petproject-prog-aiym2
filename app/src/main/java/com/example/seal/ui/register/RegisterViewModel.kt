@@ -7,6 +7,7 @@ import com.example.seal.R
 import com.example.seal.ui.base.BaseViewModel
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -15,8 +16,6 @@ class RegisterViewModel @Inject constructor(
     private val auth: FirebaseAuth
 ) : BaseViewModel() {
 
-//    private lateinit var auth: FirebaseAuth
-
     fun registerNewUser(email: String, password: String) {
 
         auth.createUserWithEmailAndPassword(email, password)
@@ -24,6 +23,7 @@ class RegisterViewModel @Inject constructor(
                 if (task.isSuccessful) {
                     Log.e("TAG", "createUserWithEmail:success")
                     val user = auth.currentUser
+                    val firebaseUser: FirebaseUser = task.result.user!!
                 } else {
                     Log.e("TAG", "createUserWithEmail:failure", task.exception)
                     Event.ShowToast(R.string.authentication_failed)
