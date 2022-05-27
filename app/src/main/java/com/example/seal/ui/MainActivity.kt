@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.seal.R
 import com.example.seal.databinding.ActivityMainBinding
+import com.example.seal.ui.authorization.AuthorizationFragment
 import com.example.seal.ui.cafes.CafeListFragment
 import com.example.seal.ui.register.RegisterFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = RegisterFragment()
+        val fragment = AuthorizationFragment()
 
         supportFragmentManager.beginTransaction().add(R.id.container, fragment)
             .commit()
