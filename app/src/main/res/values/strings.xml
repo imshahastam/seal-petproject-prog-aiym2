@@ -14,4 +14,8 @@
     <string name="password">Пароль</string>
     <string name="register">Зарегистрироваться</string>
     <string name="login">Войти</string>
+
+    <string name="cafies">Кофейни</string>
+    <string name="scan">QR-code</string>
+    <string name="account">Профиль</string>
 </resources>

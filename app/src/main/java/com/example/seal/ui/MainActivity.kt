@@ -2,12 +2,16 @@ package com.example.seal.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.seal.R
 import com.example.seal.databinding.ActivityMainBinding
+import com.example.seal.ui.account.PersonalAccountFragment
 import com.example.seal.ui.authorization.AuthorizationFragment
 import com.example.seal.ui.cafes.CafeListFragment
 import com.example.seal.ui.register.RegisterFragment
+import com.example.seal.ui.scanner.ScannerFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,13 +24,24 @@ class MainActivity : AppCompatActivity(), FragmentListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        init()
+
+        binding.bottomNavigation.setOnItemSelectedListener {
+            when(it.itemId) {
+                R.id.cafiesMenu -> { openFragment(CafeListFragment()) }
+                R.id.scanMenu -> { openFragment(ScannerFragment()) }
+                R.id.accountMenu -> { openFragment(PersonalAccountFragment()) }
+            }
+            true
+        }
+    }
+
+    private fun init() {
         val fragment = AuthorizationFragment()
 
-        supportFragmentManager.beginTransaction().add(R.id.container, fragment)
+        supportFragmentManager.beginTransaction()
+            .add(R.id.container, fragment)
             .commit()
-//        if(savedInstanceState == null){
-//            openFragment(RegisterFragment(),false)
-//        }
     }
 
     override fun openFragment(fragment: Fragment, addToBackStack: Boolean?) {

@@ -3,10 +3,12 @@ package com.example.seal.ui.register
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.example.seal.R
 import com.example.seal.databinding.FragmentPersonalAccountBinding
 import com.example.seal.databinding.FragmentRegisterBinding
 import com.example.seal.ui.authorization.AuthorizationViewModel
 import com.example.seal.ui.base.BaseFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -20,6 +22,7 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
     private lateinit var emailInputLayout: TextInputLayout
     private lateinit var passwordInputLayout: TextInputLayout
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,6 +30,10 @@ class RegisterFragment : BaseFragment<RegisterViewModel, FragmentRegisterBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        menu.visibility = View.GONE
+
         val name = binding.nameEditTxtRegister.text
         val surname = binding.surnameEditTxtRegister.text
 

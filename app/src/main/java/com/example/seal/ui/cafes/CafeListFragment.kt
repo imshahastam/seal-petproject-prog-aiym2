@@ -14,6 +14,7 @@ import com.example.seal.ui.authorization.AuthorizationViewModel
 import com.example.seal.ui.base.BaseFragment
 import com.example.seal.ui.base.LoadingEvent
 import com.example.seal.ui.cafes.recycler.CafeAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,6 +31,10 @@ class CafeListFragment : BaseFragment<CafeListVM, FragmentCafeListBinding>(
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        menu.visibility = View.VISIBLE
+
         setupViews()
         subscribeToLiveData()
     }
@@ -38,7 +43,10 @@ class CafeListFragment : BaseFragment<CafeListVM, FragmentCafeListBinding>(
         val layoutManager = LinearLayoutManager(activity)
         binding.recycler.layoutManager = layoutManager
         binding.recycler.adapter = cafeAdapter
-        viewModel.fetchCafe()
+
+        binding.swipe.setOnRefreshListener {
+            viewModel.fetchCafe()
+        }
     }
 
     private fun subscribeToLiveData() {
@@ -48,13 +56,13 @@ class CafeListFragment : BaseFragment<CafeListVM, FragmentCafeListBinding>(
             }
         }
 
-//        viewModel.event.observe(viewLifecycleOwner) {
-//            when (it) {
-//                is LoadingEvent.ShowLoading -> binding.swipeRV.isRefreshing = true
-//                is LoadingEvent.StopLoading -> binding.swipeRV.isRefreshing = false
-//                else -> Log.e("DEBUG", getString(R.string.unknown_exception))
-//            }
-//        }
+        viewModel.event.observe(viewLifecycleOwner) {
+            when (it) {
+                is LoadingEvent.ShowLoading -> binding.swipe.isRefreshing = true
+                is LoadingEvent.StopLoading -> binding.swipe.isRefreshing = false
+                else -> Log.e("DEBUG", getString(R.string.unknown_exception))
+            }
+        }
     }
 
     private fun setDataToRecyclerView(it: List<Cafe>) {

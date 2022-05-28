@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import com.example.seal.R
 import com.example.seal.databinding.FragmentAuthorizationBinding
 import com.example.seal.ui.FragmentListener
 import com.example.seal.ui.base.BaseFragment
 import com.example.seal.ui.cafes.CafeListFragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -28,6 +30,9 @@ class AuthorizationFragment : BaseFragment<AuthorizationViewModel, FragmentAutho
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val menu = requireActivity().findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        menu.visibility = View.GONE
 
         emailInputLayoutLogin = binding.textFieldLogin
         passwordInputLayoutLogin = binding.textFieldLogin2

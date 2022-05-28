@@ -2,7 +2,6 @@ package com.example.seal.domain.use_cases
 
 import com.example.seal.data.models.CafeDto
 import com.example.seal.data.models.CafeEntity
-import com.example.seal.data.models.ResponseCafies
 import com.example.seal.data.repo.CafeRepo
 import com.example.seal.domain.models.Cafe
 import com.example.seal.extensions.toCafe
@@ -24,16 +23,6 @@ class GetCafiesUseCase @Inject constructor(
                 cafeRepo.saveCafiesToDB(it.map { it.toCafeEntity() })
                 it.map { it.toCafe() }
             }
-//            .map {
-//                val list = mutableListOf<CafeEntity>()
-//                it.forEach {
-//                    list.add(it.toCafeEntity())
-//                }
-//                list.toList()
-//            }
-//            .map {
-//                cafeRepo.saveCafiesToDB(it)
-//            }
             .observeOn(AndroidSchedulers.mainThread())
     }
 }
