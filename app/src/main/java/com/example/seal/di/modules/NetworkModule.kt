@@ -2,8 +2,10 @@ package com.example.seal.di.modules
 
 import androidx.viewbinding.BuildConfig
 import com.example.seal.data.network.CafeApi
+import com.example.seal.data.network.UserApi
 import com.example.seal.di.*
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,6 +28,10 @@ class NetworkModule {
 
     @Provides
     @Singleton
+    fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+    @Provides
+    @Singleton
     fun provideOkHttpClient(): OkHttpClient = createOkHttpClientBuilder().build()
 
     @Provides
@@ -34,6 +40,9 @@ class NetworkModule {
 
     @Provides
     fun provideFirebaseAuth() : FirebaseAuth = FirebaseAuth.getInstance()
+
+    @Provides
+    fun provideFirebaseDatabase() : FirebaseDatabase = FirebaseDatabase.getInstance()
 
     private fun createOkHttpClientBuilder(): OkHttpClient.Builder {
         val interceptor = HttpLoggingInterceptor()

@@ -15,8 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class CafeListVM @Inject constructor(
-    private val getCafiesUseCase: GetCafiesUseCase,
-    private val getCafiesFromDB: GetCafiesFromDBUseCase
+    private val getCafiesUseCase: GetCafiesUseCase
     ) : BaseViewModel() {
 
         private val _cafe = MutableLiveData<List<Cafe>> ()

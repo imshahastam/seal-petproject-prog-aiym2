@@ -13,6 +13,7 @@ class CafeViewHolder(private val binding: ItemRecyclerBinding) :
 
         fun bind(item: Cafe) {
             binding.cafeNameTxt.text = item.name
+            binding.cafeAdressTxt.text = item.address
         }
 
     companion object {

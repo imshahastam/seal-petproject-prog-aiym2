@@ -7,5 +7,6 @@ import androidx.room.PrimaryKey
 data class CafeEntity (
     @PrimaryKey(autoGenerate = false)
     val objectId: String,
-    val name: String
+    val name: String,
+    val address: String
 )

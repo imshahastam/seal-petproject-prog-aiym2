@@ -8,13 +8,12 @@ import androidx.room.Query
 import com.example.seal.data.models.CafeEntity
 import io.reactivex.Single
 
-@Dao
-interface CafeDao {
-
-    @Query("SELECT * FROM CafeEntity")
-    fun getAll(): LiveData<List<CafeEntity>>
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insertList(cafiesList: List<CafeEntity>)
-
-}
+//@Dao
+//interface UserDao {
+//
+//    @Query("SELECT * FROM UserEntity WHERE email = :email")
+//    fun getById(email: String): Single<UserEntity>
+//
+//    @Insert(onConflict = OnConflictStrategy.IGNORE)
+//    fun insert(user: UserEntity)
+//}

@@ -18,4 +18,13 @@
     <string name="cafies">Кофейни</string>
     <string name="scan">QR-code</string>
     <string name="account">Профиль</string>
+
+    <string name="coffee">Выпито кофе:</string>
+    <string name="count_coffee_default">0/0</string>
+    <string name="reset">Сбросить</string>
+
+    <string name="delete_account">Удалить аккаунт</string>
+    <string name="logout">Выйти</string>
+
+
 </resources>

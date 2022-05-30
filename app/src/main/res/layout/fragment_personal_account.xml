@@ -2,12 +2,55 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/screen_acc">
 
     <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/userNameTxt"
+        style="@style/BaseTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is Personal acc"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/userSurnameTxt"
+        style="@style/BaseTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/userNameTxt"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/userEmailTxt"
+        style="@style/BaseTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/userSurnameTxt"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/deleteAccountBtn"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        app:strokeColor="@color/red"
+        android:hint="@string/delete_account"
+        android:textColorHint="@color/red"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/userEmailTxt"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/logoutBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        style="?attr/materialButtonOutlinedStyle"
+        android:hint="@string/logout"
+        android:textColorHint="@color/white"
+        android:backgroundTint="@color/red"
+        app:layout_constraintTop_toBottomOf="@id/deleteAccountBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

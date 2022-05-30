@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.seal.data.models.CafeEntity
 
-@Database(entities = [CafeEntity::class], version = 2)
+@Database(entities = [CafeEntity::class], version = 5)
 //@TypeConverters(RoomModelsConverter::class, RoomCollectionsConverter::class)
 abstract class AppDatabase: RoomDatabase()  {
 

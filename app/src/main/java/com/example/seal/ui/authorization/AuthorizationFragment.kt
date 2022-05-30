@@ -10,6 +10,7 @@ import com.example.seal.databinding.FragmentAuthorizationBinding
 import com.example.seal.ui.FragmentListener
 import com.example.seal.ui.base.BaseFragment
 import com.example.seal.ui.cafes.CafeListFragment
+import com.example.seal.ui.register.RegisterFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.textfield.TextInputLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -45,6 +46,10 @@ class AuthorizationFragment : BaseFragment<AuthorizationViewModel, FragmentAutho
                 login(emailLogin, passwordLogin)
                 Log.e("TAG", "set email = $emailLogin, editTxt = $emailEditTxtLogin")
                 fragmentListener.openFragment(CafeListFragment())
+            }
+
+            signinBtn.setOnClickListener {
+                fragmentListener.openFragment(RegisterFragment())
             }
         }
     }

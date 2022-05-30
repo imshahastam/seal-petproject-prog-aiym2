@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/screen_autho">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="match_parent"
@@ -53,12 +54,23 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginBtn"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_margin="20dp"
         android:hint="@string/login"
         android:textColorHint="@color/black"
         app:layout_constraintTop_toBottomOf="@id/textFieldLogin2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/signinBtn"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        android:hint="@string/registration"
+        android:textColorHint="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/loginBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 

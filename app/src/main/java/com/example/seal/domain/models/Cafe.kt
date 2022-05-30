@@ -2,5 +2,6 @@ package com.example.seal.domain.models
 
 data class Cafe(
     val objectId: String,
-    var name: String
+    var name: String,
+    val address: String
     )
